@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<link th:href="@{/css/estilos.css}" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title th:text="#{storep}"></title>
+	
+</head>
+<body>
+	<div class="headerP">
+		<h1 th:text="#{storep}"></h1>	
+		<div class="lan">	
+			<a href="?lang=es"><img class="iconolan" alt="" th:src="@{/images/es.png}"/></a>
+			<a href="?lang=en"><img class="iconolan" alt="" th:src="@{/images/en.png}"/></a> 		
+		</div>					
+	</div>
+	<div class="rowP">
+		<div class="col-3 menu">
+			<ul>
+				<li><a href="/" th:text="#{home}"></a></li>
+			</ul>
+		</div>
+		<div class="col-9">
+		  <h2 th:text="#{denied}"></h2>
+		</div>
+	</div>
+</body>
+</html>

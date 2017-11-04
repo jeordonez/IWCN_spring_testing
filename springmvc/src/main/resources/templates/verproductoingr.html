@@ -1,0 +1,51 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<link th:href="@{/css/estilos.css}" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title th:text="#{storep}"></title>
+</head>
+<body>
+	<div class="headerP">
+		<h1 th:text="#{storep}"></h1>	
+		<div class="lan">	
+			<a href="?lang=es"><img class="iconolan" alt="" th:src="@{/images/es.png}"/></a>
+			<a href="?lang=en"><img class="iconolan" alt="" th:src="@{/images/en.png}"/></a>
+			<p><h5 th:text="#{hi} + ', '"></h5><h5 sec:authentication="name"></h5></p>	
+			<form th:action="@{/logout}" method="post">
+				<input id="btsingout" type="submit" th:value="#{singout}"/>
+			</form>	  			
+		</div>					
+	</div>
+	<div class="rowP">
+		<div class="col-3 menu">
+			<ul>
+				<li><a href="/" th:text="#{home}"></a></li>
+				<li><a href="/productos" th:text="#{listprod}"></a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/producto/nuevo" th:text="#{newprod}"></a></li>
+			</ul>
+		</div>
+		<div class="col-9">
+			<h2 th:text="#{detail}"></h2>
+			<div class="newpform">
+
+				<label th:text="#{code} + ' : ' + ${producto.codigo}"></label><br/>
+				<label th:text="#{name} + ' : ' + ${producto.nombre}"></label><br/>
+				<label th:text="#{description} + ' : ' + ${producto.descripcion}"></label><br/>
+				<label th:text="#{price} + ' : ' + ${producto.precio}"></label><br/>
+
+	           <!-- <label th:text="#{code}"></label>
+	           <p th:text="${producto.codigo}"></p>
+	           <label th:text="#{name}"></label>
+	           <p th:text="${producto.nombre}"></p>
+	           <label th:text="#{description}"></label>
+	           <p th:text="${producto.descripcion}"></p>
+	           <label th:text="#{price}"></label>
+	           <p th:text="${producto.precio}"></p>  -->
+	                 
+			</div>
+		</div>
+	</div>
+</body>
+</html>
