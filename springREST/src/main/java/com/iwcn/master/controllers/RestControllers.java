@@ -1,5 +1,7 @@
 package com.iwcn.master.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,7 @@ public class RestControllers {
     }
       
     @RequestMapping(value = "/server/productos", method = RequestMethod.GET)
-    public Iterable<Producto> lista() {
+    public ArrayList<Producto> lista() {
         return proSer.listaproductos();
     }
 	
