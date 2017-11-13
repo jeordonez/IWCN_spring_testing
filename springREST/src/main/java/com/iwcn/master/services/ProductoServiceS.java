@@ -33,8 +33,8 @@ public class ProductoServiceS implements ProductoService {
 	}
 
 	@Override
-	public Producto guardarproducto(Producto prod) {
-		return prodRepo.save(prod);
+	public void guardarproducto(Producto prod) {
+		prodRepo.save(prod);
 	}
 
 	@Override

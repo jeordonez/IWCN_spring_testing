@@ -44,7 +44,7 @@ public class ProductoServiceTest {
 	
 	//el test falla si el metodo tarda más de 200 milisegundos
 	@Test(timeout=200)
-	public void listaproductosTests() throws ServiceException{
+	public void listaproductosTest() throws ServiceException{
 		ArrayList<Producto> productos = proSer.listaproductos();
 		assertEquals(productos.size(), 1);
 		verify(producRepo).findAll();
@@ -61,7 +61,7 @@ public class ProductoServiceTest {
     }
     
     @Test(timeout=50)
-    public void getproductoidTests() throws ServiceException{
+    public void getproductoidTest() throws ServiceException{
     	Producto p1 = proSer.getproductoid(1);
     	assertEquals(p1.getNombre(), "manzana");
     	assertEquals(p1.getDescripcion(), "producto comestible");
@@ -70,7 +70,7 @@ public class ProductoServiceTest {
     }
     
     @Test(timeout=50)
-	public void guardarproductoTests() throws ServiceException{
+	public void guardarproductoTest() throws ServiceException{
         assertEquals(proSer.listaproductos().size(), 1);
         Producto pro = new Producto("galletas", "comestible", 2);
         proSer.guardarproducto(pro);
@@ -80,7 +80,7 @@ public class ProductoServiceTest {
 	}    
 	
     @Test(timeout=50)
-	public void EditarProductoTests() throws ServiceException{ 
+	public void EditarProductoTest() throws ServiceException{ 
         assertEquals(proSer.listaproductos().size(), 1);
         Producto prod = proSer.getproductoid(1);
         prod.setNombre("Pera");
@@ -91,7 +91,7 @@ public class ProductoServiceTest {
 	}
 
     @Test(timeout=50)
-	public void borrarproductoTests() throws ServiceException{
+	public void borrarproductoTest() throws ServiceException{
 		assertEquals(proSer.listaproductos().size(), 1);
 		Producto pro = proSer.getproductoid(1);
 		proSer.borrarproducto(pro.getCodigo());
